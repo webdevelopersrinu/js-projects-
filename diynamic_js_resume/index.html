@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srinu Resume</title>
+    <style>
+        /* grobal styles */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #root{
+            width: 100%;
+        }
+        :root{
+            --primary-color:#141316;
+            --seconry-color:#4d3532;
+            --text-color:#f7e3e4;
+        }
+        .primary-text , ul li{
+            color: var(--text-color);
+            font-size: 0.8rem;
+            padding: 7px 0;
+        }
+        .title-text{
+            color: var(--text-color);
+            text-transform: uppercase;
+            padding: 12px 0;
+            font-size: 3rem;
+        }
+        .label-text{
+            color: var(--text-color);
+            text-transform: capitalize;
+            padding: 12px 0;
+            font-size: 1.2rem;
+            font-weight: bolder;
+        }
+        .sub-title{
+            color: var(--text-color);
+            letter-spacing: 2px;
+            word-spacing: 4px;
+        }
+        .sub-label-text{
+            color: var(--text-color);
+            text-transform: capitalize;
+            font-size: 0.9rem;
+            font-weight: bolder;
+        }
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* local styles */
+        .container{
+            background-color: var(--primary-color);
+            width: 70%;
+            height: auto;
+            padding: 4rem 1.4rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding-top: 1rem;
+        }
+        .left-section{
+            width: 30%;
+            background-color: var(--seconry-color);
+            margin: 3rem 0.9rem;
+            padding: 3rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 8rem;
+            padding-bottom: 5rem;
+            border-bottom-right-radius: 6rem;
+            border-bottom-left-radius: 6rem;
+            margin-top: 0;
+        }
+        .profile-img img{
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            padding: 6px;
+            box-shadow: 0 0 7px var(--primary-color);
+        }
+        .contact-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            flex-direction: column;
+            gap: 9px;
+        }
+        .projects-section,.program-skill{
+            margin-left: -45px;
+        }
+        .projects-section ul ,.program-skill ul{
+            margin-left: 12px;
+        }
+        /* right-styleing section */
+        .right-section{
+            width: 70%;
+            padding: 3.4rem 0.6rem;
+        }
+        .active{
+            background-color: var(--seconry-color);
+            display: inline-block;
+            padding: 10px 10px;
+            margin: 9px 0;
+            border-radius: 21px;
+        }
+        tr td{
+            padding: 6px 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+    </div>
+    <script>
+        // display data
+let rightData={
+    title:"SRINU DESETTI",
+    subTitle:"MERN STACK DEVELOPER",
+    aboutTitle:"About Me",
+    aboutData:"Enthusiastic and self-motivated student pursuing a degree in BSc Chemistry with a strong passion for web development. Eager to leverage skills in HTML, CSS, JavaScript, C/C++, MySQL, MongoDB, Bootstrap, and GitHub to contribute effectively in the field of web development",
+    eductionTitle:"Education",
+    skillTitle:"Skills",
+    hobbiesTitle:"Hobbies",
+    ContactTitle:"Contact",
+    ProjectsTitle:"Projects",
+    ProgramingSkillsTitle:"Programing Skills"
+}
+let educationArr=[
+    {
+       education:"Bachelor Of Science In Chemistry (BSc Chemistry )",
+       discription:"Currently, I am a third-year student at Mother Theresa Degree College Tekkali, affiliated with Dr. B.R. Ambedkar University in Srikakulam." 
+    },
+    {
+        education:"Inter-College Study",
+        discription:"I am completed intermediate studies in the MPC group at Mother Theresa Junior College in Tekkali, where I find great fascination in mathematics, particularly in problem solving."
+    },
+    {
+        education:"High School",
+        discription:"I completed my schooling at Narsipuram ZPH School in my village."
+    }
+]
+let skillsArr=[
+    "Proficient in HTML, CSS, and Bootstrap for front-end development.",
+    "Solid understanding of JavaScript for interactive web applications.",
+    "Experience with C/C++ for programming logic and algorithms.",
+    "Familiarity with relational databases such as MySQL and NoSQL databases like MongoDB.",
+    "Version control using GitHub for collaborative development.",
+    "Strong problem-solving skills and attention to detail."
+]
+let hobbiesArr=[
+    "Passionate about creating websites and exploring new technologies in web development.",
+    "Enjoy experimenting with different design elements and user experiences.",
+    "Actively involved in online coding communities for continuous learning and skill enhancement."
+]
+let contactArr=[
+    {
+        label:"Phone",
+        info:"+123-456-7890"
+    },
+    {
+        label:"Email",
+        info:"webdeveloper.srinu9@gmail.com"
+    },
+    {
+        label:"LinkedIn",
+        info:"srinu-desetti"
+    }
+]
+let projectsArr=[
+    "Food ordering website",
+    "OTT application",
+    "E-commerce application"
+]
+let programingSkillsArr=[
+    "HTML",
+    "CSS",
+    "SASS",
+    "JAVASCRIPT",
+    "REACT.JS",
+    "NEXT.JS",
+    "NODE.JS",
+    "EXPESS.JS",
+    "MONGODB",
+    "MYSQL"
+]
+        // geting root element
+        let rootElement=document.getElementById("root");
+        rootElement.classList.add("center");
+        // create container
+        let container=document.createElement("div");
+        container.classList.add("container");
+        // appen container to root section
+        rootElement.appendChild(container);
+        // create left-section
+        let leftSection=document.createElement("div");
+        leftSection.classList.add("left-section");
+        // appen left-section to container
+        container.appendChild(leftSection);
+        //create profile-img section
+        let profileImg=document.createElement("div");
+        profileImg.classList.add("profile-img");
+        let img=document.createElement("img");
+        img.src=`img/my image.jpg`; 
+        img.style.width="150px"
+        profileImg.appendChild(img);
+        // appen profile-img to left-section
+        leftSection.appendChild(profileImg);
+        // create contact-section
+        let contactSection=document.createElement("div");
+        contactSection.classList.add("contact-section");
+        // addend contact-section into left-section
+        leftSection.appendChild(contactSection);
+        // contact lable 
+        let contactLable =document.createElement("p");
+        contactLable.innerText=rightData.ContactTitle;
+        contactLable.classList.add("label-text");
+        // append contact lable into contact-section
+        contactSection.appendChild(contactLable);
+        // fatch contact data
+        contactArr.forEach((arr)=>{
+          let contactItem=document.createElement("div");
+          contactItem.classList.add("contact-item");
+          let contactName=document.createElement("p");
+          contactName.classList.add("sub-label-text");
+          contactName.innerText=arr.label;
+          contactInfo=document.createElement("p");
+          contactInfo.classList.add("primary-text");
+          contactInfo.innerText=arr.info;
+          contactItem.appendChild(contactName);
+          contactItem.appendChild(contactInfo);
+          contactSection.appendChild(contactItem)
+        })
+        // create projects-section 
+        let projectsSection=document.createElement("div");
+        projectsSection.classList.add("projects-section");
+        leftSection.appendChild(projectsSection);
+        // projects- lable
+        let projectLable=document.createElement("p");
+        projectLable.classList.add("label-text");
+        projectLable.innerHTML=rightData.ProjectsTitle;
+        projectsSection.appendChild(projectLable);
+        // projects arr datA feaching
+        let projectUl=document.createElement("ul");
+        projectsArr.forEach((arr)=>{
+            let projectLi=document.createElement("li");
+            projectLi.innerHTML=arr;
+            projectUl.appendChild(projectLi);
+        })
+        projectsSection.appendChild(projectUl);
+        // program-skill section
+        let programSkill=document.createElement("div");
+        programSkill.classList.add("program-skill");
+        leftSection.appendChild(programSkill);
+        // program-skill leble 
+        PSlable=document.createElement("p");
+        PSlable.classList.add("label-text");
+        PSlable.innerHTML=rightData.ProgramingSkillsTitle;
+        programSkill.appendChild(PSlable);
+        // program-skill list
+        let psul=document.createElement("ul");
+        programingSkillsArr.forEach((arr)=>{
+            let psli=document.createElement("li");
+            psli.innerHTML=arr;
+            psul.appendChild(psli);
+        })
+        programSkill.appendChild(psul);
+
+        // right section
+        let rightSection=document.createElement("div");
+        rightSection.classList.add("right-section");
+        container.appendChild(rightSection);
+        // name 
+        let name=document.createElement("h1");
+        name.classList.add("title-text");
+        name.innerHTML=rightData.title;
+        rightSection.appendChild(name);
+        // domain
+        let domain=document.createElement("p");
+        domain.classList.add("sub-title");
+        domain.innerHTML=rightData.subTitle;
+        rightSection.appendChild(domain);
+        // info-section  
+        let infoSection=document.createElement("div");
+        infoSection.classList.add("info-section");
+        rightSection.appendChild(infoSection);
+        // about-section
+        let aboutSection=document.createElement("div");
+        aboutSection.classList.add("about-section");
+        infoSection.appendChild(aboutSection);
+        let aboutName=document.createElement("p");
+        aboutName.innerText=rightData.aboutTitle;
+        aboutName.classList.add("label-text","active")
+        aboutSection.appendChild(aboutName);
+        let aboutInfo=document.createElement("p");
+        aboutInfo.innerText=rightData.aboutData;
+        aboutInfo.classList.add("primary-text");
+        aboutSection.appendChild(aboutInfo);
+        // education-section 
+        let educationSection=document.createElement("div");
+        educationSection.classList.add('education-section');
+        infoSection.appendChild(educationSection);
+        let educationName=document.createElement("p");
+        educationName.classList.add("label-text","active");
+        educationName.innerHTML=rightData.eductionTitle;
+        educationSection.appendChild(educationName);
+        // table creation
+        let table=document.createElement("table");
+        educationSection.appendChild(table);
+        let tBody=document.createElement("tbody");
+        table.appendChild(tBody);
+        educationArr.forEach((arr)=>{
+            let eduTr=document.createElement("tr");
+            tBody.append(eduTr);
+            let eduName=document.createElement("td");
+            eduName.classList.add("sub-label-text");
+            eduName.innerHTML=arr.education;
+            eduTr.appendChild(eduName);
+            let edudis=document.createElement("td");
+            edudis.classList.add("primary-text");
+            edudis.innerHTML=arr.discription;
+            eduTr.appendChild(edudis);
+        })
+        // skills-section
+        let skillsSection=document.createElement("div");
+        skillsSection.classList.add("skills-section");
+        infoSection.appendChild(skillsSection);
+        let skillName=document.createElement("p");
+        skillName.classList.add("label-text","active");
+        skillName.innerHTML=rightData.skillTitle;
+        skillsSection.appendChild(skillName);
+        // skill list
+        let skillUl=document.createElement("ul");
+        skillsSection.appendChild(skillUl);
+        skillsArr.forEach((arr)=>{
+            let skillLi=document.createElement("li");
+            skillLi.innerHTML=arr;
+            skillUl.appendChild(skillLi);
+        })
+        // hobbies-section
+        let hobbiesSection=document.createElement("div");
+        hobbiesSection.classList.add("hobbies-section");
+        infoSection.appendChild(hobbiesSection);
+        let hobbiName=document.createElement("p");
+        hobbiName.classList.add("label-text","active");
+        hobbiName.innerHTML=rightData.hobbiesTitle;
+        hobbiesSection.appendChild(hobbiName);
+        // hobbies list
+        let hobbiUl=document.createElement("ul");
+        hobbiesSection.appendChild(hobbiUl);
+        hobbiesArr.forEach((arr)=>{
+            let hobbiesli=document.createElement("li");
+            hobbiesli.innerHTML=arr;
+            hobbiUl.appendChild(hobbiesli);
+        })
+    </script>
+</body>
+</html>
